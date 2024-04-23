@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Crop Yield Prediction</title>
+    <link rel="icon" type="image/x-icon" href="../static/pageIcon.png">
+    <link rel="stylesheet" href="../static/styles.css">
+  </head>
+  <body>
+    <div class="out-box">
+      <div class="page-img" style="width: 50%; height: 649.9px; float: left;">
+        <img src="../static/farmer1.jpg" alt="icon" class="imgFarmer">
+      </div>
+      <div class="container">
+        <h1>Crop Yield Prediction</h1>
+        <br>
+        <form action="/predict" method="post">
+          <div class="form-group">
+            <label for="Year">Year</label>
+            <br>
+            <input type="number" class="form-control" name="Year" step="any">
+          </div>
+          <div class="form-group">
+            <label for="average_rain_fall_mm_per_year">Average Rainfall per year(mm)</label>
+            <br>
+            <input type="number" class="form-control" name="average_rain_fall_mm_per_year" step="any" >
+          </div>
+          <div class="form-group">
+            <label for="avg_temp">Average Temperature</label>
+            <br>
+            <input type="number" class="form-control" name="avg_temp" step="any">
+          </div>
+          <div class="form-group">
+            <label for="pesticides_tonnes">Pesticides (Tonne)</label>
+            <br>
+            <input type="number" class="form-control" name="pesticides_tonnes" step="any" >
+          </div>
+          <div class="form-group">
+            <label for="Area">Country</label>
+            <br>
+            <input type="text" class="form-control" name="Area" >
+          </div>
+          <div class="form-group">
+              <label for="Item">Item</label>
+              <br>
+              <input type="text" class="form-control" name="Item" >
+          </div>
+          <div class="submit-btn"></div>
+          <button type="submit" class="btn">Predict</button>
+        </form>
+        {% if prediction %}
+        <p class="result"> Predicted Yield: {{prediction}} hg/ha</p>
+        {% endif %}
+      </div>
+    </div>    
+  </body>
+</html>
